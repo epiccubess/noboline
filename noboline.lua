@@ -2,7 +2,7 @@
 
 local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil.calculateKnockbackVelocity, 1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Noboline V 1.1 (discord.gg/noboline)", "Ocean")
+local Window = Library.CreateLib("Noboline v1.6 (discord.gg/noboline)", "Ocean")
 
 local Combat = Window:NewTab("Combat")
 
@@ -210,9 +210,25 @@ MovementSection:NewButton("HeetSeeker(High Ping)", "speeds u up", function()
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
     end
 end)
-
-MovementSection:NewButton("antivoid but cooler", "antivoid", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/GavinCoded/Antivoid/main/README.md"))()
+MovementSection:NewButton("Remove antivoid", "Removes antivoid", function()
+    game.Workspace.AntiVoid:remove()
+end)
+MovementSection:NewButton("Antivoid", "antivoid", function()
+    local antivoidpart = Instance.new("Part", Workspace)
+            antivoidpart.Name = "AntiVoid"
+            antivoidpart.Size = Vector3.new(2100, 0.5, 2000)
+            antivoidpart.Position = Vector3.new(160.5, 25, 247.5)
+            antivoidpart.Transparency = 0.4
+            antivoidpart.Anchored = true
+            antivoidpart.Touched:connect(function(jumpremote)
+                if jumpremote.Parent:WaitForChild("Humanoid") and jumpremote.Parent.Name == lplr.Name then
+                    game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+                    wait(0.2)
+                    game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+                    wait(0.2)
+                    game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+                end
+            end)
 end)
 
 MovementSection:NewKeybind("DinoExploit", "stuff", Enum.KeyCode.F3, function()
