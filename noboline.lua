@@ -62,7 +62,7 @@ local Movement = Window:NewTab("Movement")
 
 local MovementSection = Movement:NewSection("General")
 
-MovementSection:NewKeybind("Better Longjump", "l", Enum.KeyCode.R, function()
+MovementSection:NewKeybind("Old Longjump", "l", Enum.KeyCode.R, function()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
     wait(0.7)
     game.Workspace.Gravity = 0
@@ -102,7 +102,8 @@ MovementSection:NewKeybind("Speed", "speeds up", Enum.KeyCode.K, function()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
 end)
 
-MovementSection:NewKeybind("Speed", "speeds up", Enum.KeyCode.K, function()
+
+MovementSection:NewKeybind("Better longjump", "Custom longjump made by Wowzers", Enum.KeyCode.K, function()
 	local vec3 = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X + 39, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y + 12, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
 local bp = Instance.new('BodyPosition')
 bp.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
