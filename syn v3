@@ -1,3 +1,1 @@
-game.local.Parent if SynapseV3 = true 
 
-then load ("https://raw.githubusercontent.com/GavinCoded/noboline/main/noboline.lua")
