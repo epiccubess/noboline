@@ -65,7 +65,9 @@ end)
 local Movement = Window:NewTab("Movement")
 
 local MovementSection = Movement:NewSection("General")
-
+MovementSection:NewSlider("Speed", "Speed", 40, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
 MovementSection:NewKeybind("Old Longjump", "l", Enum.KeyCode.R, function()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
     wait(0.7)
