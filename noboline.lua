@@ -2,11 +2,15 @@
 
 local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil.calculateKnockbackVelocity, 1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Noboline v1.6 (discord.gg/noboline)", "Ocean")
+local Window = Library.CreateLib("Noboline v1.7 (discord.gg/noboline)", "Ocean")
 
 local Combat = Window:NewTab("Combat")
 
 local CombatSection = Combat:NewSection("General")
+
+CombatSection:NewToggle("Auto Clicker (q Toggle)", "Clicks Fast", function(state)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/GavinCoded/clicker/main/c.lua"))()
+end)
 
 CombatSection:NewToggle("killaura", "test", function(state)
     if state then
@@ -210,6 +214,22 @@ MovementSection:NewButton("HeetSeeker(High Ping)", "speeds u up", function()
     wait(0.1)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
     end
+end)
+MovementSection:NewButton("Infinite Jump", "Jumps inf times", function()
+    local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+end)
+MovementSection:NewButton("Risky Speed", "Risky Speed (flaggy)", function()
+    _G.WS = "23";
+                local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+                Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+                Humanoid.WalkSpeed = _G.WS;
+                end)
+                Humanoid.WalkSpeed = _G.WS;
 end)
 MovementSection:NewButton("Remove antivoid", "Removes antivoid", function()
     game.Workspace.AntiVoid:remove()
