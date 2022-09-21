@@ -3,7 +3,11 @@
 local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil.calculateKnockbackVelocity, 1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Noboline v1.7 (discord.gg/noboline)", "Ocean")
-
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Noboline";
+    Text = "Discord.gg/noboline"; -- what the text says (ofc)
+    Duration = 5;
+})
 local Combat = Window:NewTab("Combat")
 
 local CombatSection = Combat:NewSection("General")
@@ -13,6 +17,11 @@ CombatSection:NewToggle("Auto Clicker (q Toggle)", "Clicks Fast", function(state
 end)
 
 CombatSection:NewToggle("killaura", "test", function(state)
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline";
+        Text = "killaura Enabled!"; -- what the text says (ofc)
+        Duration = 1;
+    })
     if state then
         local player = game:GetService("Players")
 local lplr = player.LocalPlayer
@@ -54,6 +63,11 @@ if state then
 end)
 
 CombatSection:NewButton("AntiAura", "makes it harder to hit you", function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline";
+        Text = "AntiAura Enabled!"; -- what the text says (ofc)
+        Duration = 1;
+    })
     while true do
         wait(1)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 4, 0)
@@ -69,7 +83,12 @@ MovementSection:NewSlider("Speed", "Speed", 40, 16, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
 MovementSection:NewKeybind("Old Longjump", "l", Enum.KeyCode.R, function()
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+	game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline";
+        Text = "LongJump Enabled!"; -- what the text says (ofc)
+        Duration = 1;
+    })
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
     wait(0.7)
     game.Workspace.Gravity = 0
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
@@ -102,14 +121,24 @@ MovementSection:NewKeybind("Old Longjump", "l", Enum.KeyCode.R, function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.45           
     wait(1.5)
     game.Workspace.Gravity = 196
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline";
+        Text = "LongJump Disabled!"; -- what the text says (ofc)
+        Duration = 1;
+    })    
 end)
 
 MovementSection:NewKeybind("Speed", "speeds up", Enum.KeyCode.K, function()
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
 end)
 
 
 MovementSection:NewKeybind("Better longjump", "Custom longjump made by Wowzers", Enum.KeyCode.K, function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline";
+        Text = "Better LongJump Enabled!"; -- what the text says (ofc)
+        Duration = 1;
+    })
 	local vec3 = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X + 39, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y + 12, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
 local bp = Instance.new('BodyPosition')
 bp.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
@@ -142,6 +171,11 @@ wait(.1)
 bv:remove()
 wait(.4)
 bpfwd:remove()
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Noboline";
+    Text = "LongJump Disabled!"; -- what the text says (ofc)
+    Duration = 1;
+})
 end)
 
 MovementSection:NewKeybind("Longjump", "longer jump", Enum.KeyCode.J, function()
@@ -179,6 +213,11 @@ wait(0.5)
 end)
 
 MovementSection:NewKeybind("HighJump", "jump higher", Enum.KeyCode.H, function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline";
+        Text = "HighJump Enabled!"; -- what the text says (ofc)
+        Duration = 1;
+    })
 	game.Workspace.Gravity = 15
     wait(0.1)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 2.5, 0)
@@ -198,9 +237,19 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalP
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 2.5, 0)
 wait(1)
 game.Workspace.Gravity = 196
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Noboline";
+    Text = "Highjump Disabled!"; -- what the text says (ofc)
+    Duration = 1;
+})
 end)
 
 MovementSection:NewButton("HeetSeeker(low ping)", "speeds u up", function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline Warning";
+        Text = "Flaggy Sometimes"; -- what the text says (ofc)
+        Duration = 1;
+    })
     while true do
         wait(0.5)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
@@ -237,6 +286,11 @@ MovementSection:NewButton("Remove antivoid", "Removes antivoid", function()
     game.Workspace.AntiVoid:remove()
 end)
 MovementSection:NewButton("Antivoid", "antivoid", function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline";
+        Text = "Antivoid Enabled!"; -- what the text says (ofc)
+        Duration = 1;
+    })
     local antivoidpart = Instance.new("Part", Workspace)
             antivoidpart.Name = "AntiVoid"
             antivoidpart.Size = Vector3.new(2100, 0.5, 2000)
@@ -255,6 +309,11 @@ MovementSection:NewButton("Antivoid", "antivoid", function()
 end)
 
 MovementSection:NewKeybind("DinoExploit", "stuff", Enum.KeyCode.F3, function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline";
+        Text = "DinoExploit Enabled!"; -- what the text says (ofc)
+        Duration = 1;
+    })
 	local args = {
     [1] = "dino_charge"
 }
