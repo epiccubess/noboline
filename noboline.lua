@@ -12,9 +12,6 @@ local Combat = Window:NewTab("Combat")
 
 local CombatSection = Combat:NewSection("General")
 
-CombatSection:NewToggle("Auto Clicker (q Toggle)", "Clicks Fast", function(state)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/GavinCoded/clicker/main/c.lua"))()
-end)
 
 CombatSection:NewToggle("killaura", "test", function(state)
     game.StarterGui:SetCore("SendNotification", {
