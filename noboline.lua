@@ -2,16 +2,33 @@
 
 local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil.calculateKnockbackVelocity, 1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Noboline v1.7 (discord.gg/noboline)", "Ocean")
+local Window = Library.CreateLib("Noboline v1.8 (discord.gg/noboline)", "Ocean")
 game.StarterGui:SetCore("SendNotification", {
     Title = "Noboline";
     Text = "Discord.gg/noboline"; -- what the text says (ofc)
     Duration = 5;
 })
 local Combat = Window:NewTab("Combat")
-
+local Utility = Window:NewTab("Utility")
+local UtilitySection = Utility:NewSection("Utility")
 local CombatSection = Combat:NewSection("General")
-
+UtilitySection:NewButton("Anticheat Disabler", "Deletes Root Part :troll:", function()
+    _G.Enabled = not _G.Enabled
+while _G.Enabled == true and wait() do
+game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Lighting")
+game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
+game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Workspace")
+wait()
+game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Lighting")
+game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 100
+game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Workspace")
+end
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Noboline";
+    Text = "Anticheat Disabled have fun!"; -- what the text says (ofc)
+    Duration = 6;
+})
+end)
 
 CombatSection:NewToggle("killaura", "test", function(state)
     game.StarterGui:SetCore("SendNotification", {
@@ -252,6 +269,13 @@ MovementSection:NewButton("HeetSeeker(low ping)", "speeds u up", function()
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
     wait(0.1)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
+    end
+end)
+MovementSection:NewToggle("Fly", "Uses Gravity to make you fly.", function(state)
+    if state then
+        game.Workspace.Gravity = 1
+    else
+        game.Workspace.Gravity = 1
     end
 end)
 
@@ -714,6 +738,10 @@ MechanicsSection:NewToggle("Low Gravity", "makes gravity low", function(state)
         game.Workspace.Gravity = 196
     end
 end)
+MechanicsSection:NewSlider("FOV Changer", "Changes Field Of View", 120, 70, function(t)
+    game.Workspace.Camera.FieldOfView = t
+end)
+
 
 MechanicsSection:NewToggle("High Gravity", "makes gravity higher", function(state)
     if state then
