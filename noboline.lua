@@ -76,27 +76,13 @@ if state then
 	end
 end)
 
-CombatSection:NewButton("AntiAura", "makes it harder to hit you", function()
-    game.StarterGui:SetCore("SendNotification", {
-        Title = "Noboline";
-        Text = "AntiAura Enabled!"; -- what the text says (ofc)
-        Duration = 1;
-    })
-    while true do
-        wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 4, 0)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 4, 0)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 4, 0)
-    end
-end)
-
 local Movement = Window:NewTab("Movement")
 
 local MovementSection = Movement:NewSection("General")
 MovementSection:NewSlider("Speed", "Speed", 40, 16, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
-MovementSection:NewKeybind("Old Longjump", "l", Enum.KeyCode.R, function()
+MovementSection:NewKeybind("OldFly", "R", Enum.KeyCode.R, function()
 	game.StarterGui:SetCore("SendNotification", {
         Title = "Noboline";
         Text = "LongJump Enabled!"; -- what the text says (ofc)
@@ -147,7 +133,7 @@ MovementSection:NewKeybind("Speed", "speeds up", Enum.KeyCode.K, function()
 end)
 
 
-MovementSection:NewKeybind("Better longjump", "Custom longjump made by Wowzers", Enum.KeyCode.K, function()
+MovementSection:NewKeybind("LongJump", "Custom longjump made by Wowzers", Enum.KeyCode.J, function()
     game.StarterGui:SetCore("SendNotification", {
         Title = "Noboline";
         Text = "Better LongJump Enabled!"; -- what the text says (ofc)
@@ -192,7 +178,7 @@ game.StarterGui:SetCore("SendNotification", {
 })
 end)
 
-MovementSection:NewKeybind("Longjump", "longer jump", Enum.KeyCode.J, function()
+MovementSection:NewKeybind("OldLongJump", "longer jump", Enum.KeyCode.J, function()
 	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
     game.Workspace.Gravity = 15
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.25
@@ -259,25 +245,20 @@ game.StarterGui:SetCore("SendNotification", {
 end)
 
 MovementSection:NewButton("HeetSeeker(low ping)", "speeds u up", function()
-    game.StarterGui:SetCore("SendNotification", {
-        Title = "Noboline Warning";
-        Text = "Flaggy Sometimes"; -- what the text says (ofc)
-        Duration = 1;
-    })
     while true do
-        wait(0.5)
+     	wait(0.5)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
     wait(0.1)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
     end
 end)
-MovementSection:NewToggle("Fly", "Uses Gravity to make you fly.", function(state)
-    if state then
-        game.Workspace.Gravity = 1
-    else
-        game.Workspace.Gravity = 1
-    end
+
+MovementSection:NewKeybind("GravityFly", "Uses Gravity to make you fly", Enum.KeyCode.F, function()
+	game.Workspace.Gravity = 1
+	wait(1.5)
+	game.Workspace.Gravity = 196.2
 end)
+
 
 MovementSection:NewButton("HeetSeeker(High Ping)", "speeds u up", function()
     while true do
