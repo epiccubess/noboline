@@ -178,7 +178,7 @@ game.StarterGui:SetCore("SendNotification", {
 })
 end)
 
-MovementSection:NewKeybind("OldLongJump", "longer jump", Enum.KeyCode.J, function()
+MovementSection:NewKeybind("OldLongJump", "longer jump", Enum.KeyCode.B, function()
 	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
     game.Workspace.Gravity = 15
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.25
