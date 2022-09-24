@@ -1,4 +1,4 @@
---noboline bedwars
+--public noboline
 
 local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil.calculateKnockbackVelocity, 1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
@@ -9,26 +9,7 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = 5;
 })
 local Combat = Window:NewTab("Combat")
-local Utility = Window:NewTab("Utility")
-local UtilitySection = Utility:NewSection("Utility")
 local CombatSection = Combat:NewSection("General")
-UtilitySection:NewButton("Anticheat Disabler", "Deletes Root Part :troll:", function()
-    _G.Enabled = not _G.Enabled
-while _G.Enabled == true and wait() do
-game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Lighting")
-game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
-game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Workspace")
-wait()
-game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Lighting")
-game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 100
-game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Workspace")
-end
-game.StarterGui:SetCore("SendNotification", {
-    Title = "Noboline";
-    Text = "Anticheat Disabled have fun!"; -- what the text says (ofc)
-    Duration = 6;
-})
-end)
 
 CombatSection:NewToggle("killaura", "test", function(state)
     game.StarterGui:SetCore("SendNotification", {
@@ -771,5 +752,3 @@ end)
 MechanicsSection:NewKeybind("Open GUI", "RightShift", Enum.KeyCode.RightShift, function()
 	Library:ToggleUI()
 end)
-wait(1)
-game.Players.LocalPlayer.Character.Animate.Disabled = true
