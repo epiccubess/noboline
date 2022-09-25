@@ -257,8 +257,8 @@ game:GetService("UserInputService").JumpRequest:connect(function()
 	end
 end)
 end)
-MovementSection:NewButton("Risky Speed", "Risky Speed (flaggy)", function()
-    _G.WS = "74";
+MovementSection:NewButton("lagbacker", "lagbacksu", function()
+    _G.WS = "565465465465465464654564564564564564564564545645666666666666666666666665646546464";
                 local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
                 Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
                 Humanoid.WalkSpeed = _G.WS;
