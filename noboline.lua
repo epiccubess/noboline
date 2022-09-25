@@ -4,7 +4,7 @@ local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStora
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Noboline v1.8 (discord.gg/noboline)", "Ocean")
 game.StarterGui:SetCore("SendNotification", {
-    Title = "Noboline";
+    Title = "noboshit";
     Text = "Discord.gg/noboline"; -- what the text says (ofc)
     Duration = 5;
 })
@@ -258,7 +258,7 @@ game:GetService("UserInputService").JumpRequest:connect(function()
 end)
 end)
 MovementSection:NewButton("Risky Speed", "Risky Speed (flaggy)", function()
-    _G.WS = "23";
+    _G.WS = "74";
                 local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
                 Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
                 Humanoid.WalkSpeed = _G.WS;
