@@ -122,4 +122,6 @@ end)
 
 local Combat = Window:NewTab("Combat")
 local ComatSection = Combat:NewSection("Combat")
-
+CombatSection:NewButton("Velocity", "Reduces knockback taken", function()
+    print ("HI")
+end)
