@@ -4,7 +4,7 @@ local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStora
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Noboline v1.8 (discord.gg/noboline)", "Ocean")
 game.StarterGui:SetCore("SendNotification", {
-    Title = "noboshit";
+    Title = "Noboline";
     Text = "Discord.gg/noboline"; -- what the text says (ofc)
     Duration = 5;
 })
