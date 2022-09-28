@@ -1,16 +1,34 @@
+--noboline bedwars
 
-
-
-
+local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil.calculateKnockbackVelocity, 1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Noboline v1.8 (discord.gg/noboline)", "Ocean")
 game.StarterGui:SetCore("SendNotification", {
     Title = "Noboline";
-    Text = "Discord.gg/noboline"; -- what the text says (ofc)
+    Text = "discord.gg/noboline"; -- what the text says (ofc)
     Duration = 5;
 })
 local Combat = Window:NewTab("Combat")
+local Utility = Window:NewTab("Utility")
+local UtilitySection = Utility:NewSection("Utility")
 local CombatSection = Combat:NewSection("General")
+UtilitySection:NewButton("Anticheat Disabler", "Deletes Root Part :troll:", function()
+    _G.Enabled = not _G.Enabled
+while _G.Enabled == true and wait() do
+game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Lighting")
+game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 0
+game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Workspace")
+wait()
+game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Lighting")
+game:GetService("Players").LocalPlayer.Character.Humanoid.Health = 100
+game:GetService("Players").LocalPlayer.Character.Parent = game:GetService("Workspace")
+end
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Noboline";
+    Text = "Anticheat Disabled have fun!"; -- what the text says (ofc)
+    Duration = 6;
+})
+end)
 
 CombatSection:NewToggle("killaura", "test", function(state)
     game.StarterGui:SetCore("SendNotification", {
@@ -58,13 +76,27 @@ if state then
 	end
 end)
 
+CombatSection:NewButton("AntiAura", "makes it harder to hit you", function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline";
+        Text = "AntiAura Enabled!"; -- what the text says (ofc)
+        Duration = 1;
+    })
+    while true do
+        wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 4, 0)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 4, 0)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 4, 0)
+    end
+end)
+
 local Movement = Window:NewTab("Movement")
 
 local MovementSection = Movement:NewSection("General")
 MovementSection:NewSlider("Speed", "Speed", 40, 16, function(s)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
 end)
-MovementSection:NewKeybind("OldFly", "R", Enum.KeyCode.R, function()
+MovementSection:NewKeybind("Old Longjump", "l", Enum.KeyCode.R, function()
 	game.StarterGui:SetCore("SendNotification", {
         Title = "Noboline";
         Text = "LongJump Enabled!"; -- what the text says (ofc)
@@ -115,7 +147,7 @@ MovementSection:NewKeybind("Speed", "speeds up", Enum.KeyCode.K, function()
 end)
 
 
-MovementSection:NewKeybind("LongJump", "Custom longjump made by Wowzers", Enum.KeyCode.J, function()
+MovementSection:NewKeybind("Better longjump", "Custom longjump made by Wowzers", Enum.KeyCode.K, function()
     game.StarterGui:SetCore("SendNotification", {
         Title = "Noboline";
         Text = "Better LongJump Enabled!"; -- what the text says (ofc)
@@ -160,7 +192,7 @@ game.StarterGui:SetCore("SendNotification", {
 })
 end)
 
-MovementSection:NewKeybind("OldLongJump", "longer jump", Enum.KeyCode.B, function()
+MovementSection:NewKeybind("Longjump", "longer jump", Enum.KeyCode.J, function()
 	game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
     game.Workspace.Gravity = 15
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.25
@@ -227,20 +259,25 @@ game.StarterGui:SetCore("SendNotification", {
 end)
 
 MovementSection:NewButton("HeetSeeker(low ping)", "speeds u up", function()
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Noboline Warning";
+        Text = "Flaggy Sometimes"; -- what the text says (ofc)
+        Duration = 1;
+    })
     while true do
-     	wait(0.5)
+        wait(0.5)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
     wait(0.1)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
     end
 end)
-
-MovementSection:NewKeybind("GravityFly", "Uses Gravity to make you fly", Enum.KeyCode.F, function()
-	game.Workspace.Gravity = 1
-	wait(1.5)
-	game.Workspace.Gravity = 196.2
+MovementSection:NewToggle("Fly", "Uses Gravity to make you fly.", function(state)
+    if state then
+        game.Workspace.Gravity = 1
+    else
+        game.Workspace.Gravity = 1
+    end
 end)
-
 
 MovementSection:NewButton("HeetSeeker(High Ping)", "speeds u up", function()
     while true do
@@ -258,8 +295,8 @@ game:GetService("UserInputService").JumpRequest:connect(function()
 	end
 end)
 end)
-MovementSection:NewButton("lagbacker", "lagbacksu", function()
-    _G.WS = "565465465465465464654564564564564564564564545645666666666666666666666665646546464";
+MovementSection:NewButton("Risky Speed", "Risky Speed (flaggy)", function()
+    _G.WS = "23";
                 local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
                 Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
                 Humanoid.WalkSpeed = _G.WS;
@@ -753,26 +790,5 @@ end)
 MechanicsSection:NewKeybind("Open GUI", "RightShift", Enum.KeyCode.RightShift, function()
 	Library:ToggleUI()
 end)
-
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
-local ScreenGui = Instance.new("ScreenGui")
-local TextLabel = Instance.new("TextLabel")
-
---Properties:
-
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-TextLabel.Parent = ScreenGui
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(0.906929553, 0, 0.0930669531, 0)
-TextLabel.Size = UDim2.new(0, 178, 0, 50)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "noboline v.8.1"
-TextLabel.TextColor3 = Color3.fromRGB(0, 85, 255)
-TextLabel.TextSize = 32.000
+wait(1)
+game.Players.LocalPlayer.Character.Animate.Disabled = true
