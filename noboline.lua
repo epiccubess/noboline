@@ -792,3 +792,26 @@ MechanicsSection:NewKeybind("Open GUI", "RightShift", Enum.KeyCode.RightShift, f
 end)
 wait(1)
 game.Players.LocalPlayer.Character.Animate.Disabled = true
+
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+TextLabel.Parent = ScreenGui
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.906929553, 0, 0.0930669531, 0)
+TextLabel.Size = UDim2.new(0, 178, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "noboline v.8.1"
+TextLabel.TextColor3 = Color3.fromRGB(0, 85, 255)
+TextLabel.TextSize = 32.000
