@@ -22,6 +22,9 @@ TextLabel.Text = "noboline v.8.1"
 TextLabel.TextColor3 = Color3.fromRGB(0, 85, 255)
 TextLabel.TextSize = 32.000
 local KnockbackTable = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil.calculateKnockbackVelocity, 1)
+
+
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Noboline v1.8 (discord.gg/noboline)", "Ocean")
 game.StarterGui:SetCore("SendNotification", {
